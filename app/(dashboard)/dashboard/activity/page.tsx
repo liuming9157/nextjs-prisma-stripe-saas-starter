@@ -99,7 +99,12 @@ export default async function ActivityPage() {
         <CardContent>
           {logs.length > 0 ? (
             <ul className="space-y-4">
-              {logs.map((log) => {
+              {logs.map((log:{ 
+  id: string; 
+  action: ActivityType; 
+  ipAddress?: string; 
+  timestamp: Date 
+}) => {
                 const Icon = iconMap[log.action as ActivityType] || Settings;
                 const formattedAction = formatAction(
                   log.action as ActivityType
